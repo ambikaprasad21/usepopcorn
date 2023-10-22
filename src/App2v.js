@@ -59,7 +59,10 @@ export default function App() {
   // const [watched, setWatched] = useState([]);
 
   // ** useState intial value is set by a function
-  const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState(function(){
+    const storedValue = JSON.parse(localStorage?.getItem("watched")) || [];
+    return storedValue;
+  });
   // const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState("");
   const [query, setQuery] = useState("");
